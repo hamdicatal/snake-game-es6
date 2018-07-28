@@ -30,7 +30,24 @@
         }
 
         update() {
+            this.positionX = this.velocityX;
+            this.positionY = this.velocityY;
 
+            if(this.positionX < 0) {
+                this.positionX = this.tileCount - 1;
+            }
+
+            if(this.positionY < 0) {
+                this.positionY = this.tileCount - 1;
+            }
+
+            if(this.positionX >  this.tileCount - 1) {
+                this.positionX = 0;
+            }
+
+            if(this.positionY > this.tileCount - 1) {
+                this.positionY = 0;
+            }
         }
 
         draw() {
@@ -56,16 +73,16 @@
                 this.velocityY = 0;
             }
             if(e.keyCode == 38 && this.velocityX != 1) {
-                this.velocityX = -1;
-                this.velocityY = 0;
+                this.velocityX = 0;
+                this.velocityY = -1;
             }
             if(e.keyCode == 39 && this.velocityX != 1) {
-                this.velocityX = -1;
+                this.velocityX = 1;
                 this.velocityY = 0;
             }
             if(e.keyCode == 40 && this.velocityX != 1) {
-                this.velocityX = -1;
-                this.velocityY = 0;
+                this.velocityX = 0;
+                this.velocityY = 1;
             }
         }
     }
