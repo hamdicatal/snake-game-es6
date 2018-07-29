@@ -65,6 +65,15 @@
                 this.tailSize++;
                 this.appleX = Math.floor(Math.random() * this.tileCount);
                 this.appleY = Math.floor(Math.random() * this.tileCount);
+
+                // Eğer yeni hedef yılanın üzerinde oluşmuşsa, hedef yeniden belirlenir.
+                var i = 0;
+                for(i=0; i < this.trail.length; i++) {
+                    if(this.trail[i].positionX == this.appleX && this.trail[i].positionY == this.appleY) {
+                        this.appleX = Math.floor(Math.random() * this.tileCount);
+                        this.appleY = Math.floor(Math.random() * this.tileCount);
+                    }
+                }
             }
         }
 
