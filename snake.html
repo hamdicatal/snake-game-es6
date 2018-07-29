@@ -1,6 +1,8 @@
 <canvas id="game" width="400" height="400"></canvas>
 
 <script>
+    var highScore = 0;
+
     class SnakeGame {
         constructor() {
             this.canvas = document.getElementById('game');
@@ -15,6 +17,7 @@
             this.trail = [];
             this.gridSize = this.tileCount = 20;
             this.velocityX = this.velocityY = 0;
+            this.highScore = highScore;
 
             this.timer = setInterval(this.loop.bind(this), 1000/15);
         }
@@ -83,7 +86,20 @@
 
             this.context.fillStyle = 'white';
             this.context.font = '20px Arial';
-            this.context.fillText(this.tailSize - 5, this.canvas.width - 30, 30);
+            this.context.fillText(this.tailSize - 5, this.canvas.width - 30, 20);
+
+            if(this.tailSize-5 > highScore) {
+                highScore = this.tailSize-5;
+                this.highScore = highScore;
+            }
+
+            this.context.fillStyle = 'green';
+            this.context.font = '10px Arial';
+            this.context.fillText("High Score: ", this.canvas.width - 90, 40);
+
+            this.context.fillStyle = 'green';
+            this.context.font = '10px Arial';
+            this.context.fillText(this.highScore, this.canvas.width - 25, 40);
 
             this.context.fillStyle = 'blue';
             this.trail.forEach(t => {
