@@ -1,0 +1,3 @@
+# SnakeGameJS
+
+JavaScript ile herhangi bir framework kullanılmadan yazılmış, basit bir yılan oyunu...
