@@ -1,7 +1,4 @@
-<canvas id="game" width="400" height="400"></canvas>
-
-<script>
-    var highScore = 0;
+var highScore = 0;
 
     class SnakeGame {
         constructor() {
@@ -132,4 +129,3 @@
 
     const game = new SnakeGame();
     window.onload = () => game.init();
-</script>
